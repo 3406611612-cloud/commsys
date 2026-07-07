@@ -130,13 +130,23 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
 .ov-right{padding:10px;display:flex;flex-direction:column;gap:6px;overflow-y:auto;border-left:1px solid var(--border)}
 .ov-center{position:relative;width:100%;height:100%;min-height:0}
 .ov-map{width:100%;height:100%}
-.ov-bot{height:34px;background:#fff;border-top:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ov-bot .ov-al{color:var(--accent);font-size:12px;font-weight:600;margin:0 14px;white-space:nowrap}
-.ov-bot .ov-scroll{flex:1;overflow:hidden;max-width:700px}
-.ov-bot .ov-sct{white-space:nowrap;font-size:12px;color:var(--text-secondary);animation:scr 20s linear infinite}
-.ov-bot .ov-ar{color:var(--text-muted);font-size:10px;margin:0 10px;cursor:pointer}
+.ov-bot{height:48px;background:#f5f6f8;border-top:1px solid var(--border);margin-top:auto;
+  display:flex;align-items:center;flex-shrink:0;padding:0 16px;gap:10px;z-index:10;width:100%;position:relative}
+.ov-bot-btn{padding:6px 18px;font-size:13px;font-weight:500;border:1px solid var(--border);border-radius:4px;
+  background:#fff;color:var(--text-secondary);cursor:pointer;font-family:var(--font);
+  transition:all .15s;white-space:nowrap;display:flex;align-items:center;gap:5px}
+.ov-bot-btn:hover{border-color:var(--accent);color:var(--accent);background:#f0f7fc}
+.ov-bot-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.ov-bot-btn.primary:hover{background:#337ab7;border-color:#337ab7}
+.ov-bot-btn.danger{color:var(--danger);border-color:var(--danger)}
+.ov-bot-btn.danger:hover{background:var(--danger);color:#fff}
+.ov-bot-div{width:1px;height:20px;background:var(--border);margin:0 4px}
+.ov-bot .ov-al{color:var(--accent);font-size:11px;font-weight:600;margin:0 10px;white-space:nowrap}
+.ov-bot .ov-scroll{flex:1;overflow:hidden;max-width:500px;margin-left:auto}
+.ov-bot .ov-sct{white-space:nowrap;font-size:11px;color:var(--text-secondary);animation:scr 20s linear infinite}
+.ov-bot .ov-ar{color:var(--text-muted);font-size:10px;margin:0 6px;cursor:pointer}
 @keyframes scr{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes billboardScroll{0%{transform:translateX(60%)}100%{transform:translateX(-60%)}}
 
 .gv-panel{background:#fff;border:1px solid var(--border);
   border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
@@ -246,6 +256,24 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
 .m3d-dev-add-btn:hover{background:#2b7aa5;border-color:#2b7aa5}
 .m3d-scan-btn{margin-left:3px;padding:2px 10px;border:1px solid #ef4444;border-radius:3px;background:#ef4444;color:#fff;font-size:10px;cursor:pointer;font-family:var(--font);transition:all .15s}
 .m3d-scan-btn:hover{background:#dc2626;border-color:#dc2626}
+.omc-tabs{display:flex;gap:2px;margin-bottom:12px;border-bottom:2px solid var(--accent)}
+.omc-tab{padding:7px 16px;border:none;background:none;font-size:13px;cursor:pointer;font-family:var(--font);color:var(--text-muted);border-radius:4px 4px 0 0;transition:all .15s}
+.omc-tab:hover{background:rgba(60,141,188,0.06);color:var(--accent)}
+.omc-tab.active{background:var(--accent);color:#fff;font-weight:600}
+.omc-panel{display:none;padding:8px 0}
+.omc-panel.active{display:block}
+.omc-modal{position:fixed;inset:0;z-index:2100;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center}
+.omc-modal>div{background:#fff;border-radius:6px;padding:20px;min-width:360px;max-width:500px;box-shadow:0 8px 32px rgba(0,0,0,0.2)}
+.omc-modal h3{font-size:15px;margin-bottom:14px}
+.omc-modal .row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.omc-modal .row label{width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0}
+.omc-modal .row input,.omc-modal .row select{padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px;flex:1;font-family:var(--font)}
+.omc-modal .btns{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.omc-modal .btns button{padding:6px 16px;border:none;border-radius:4px;font-size:12px;cursor:pointer;font-family:var(--font)}
+.omc-modal .btns .ok{background:var(--accent);color:#fff}.omc-modal .btns .cancel{background:var(--border);color:var(--text-secondary)}
+.sch-row{display:flex;align-items:center;gap:4px;margin-bottom:3px}
+.sch-row input[type="time"]{padding:3px 6px;border:1px solid var(--border);border-radius:2px;font-size:11px;width:80px;font-family:var(--font)}
+
 .cm.highlight .cm-dot{width:22px!important;height:22px!important;box-shadow:0 0 20px currentColor,0 0 40px rgba(60,141,188,0.4)!important;animation:markerPulse .8s ease-in-out infinite}
 @keyframes markerPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.5)}}
 @keyframes pulsePlus{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
@@ -263,6 +291,44 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
 /* Red intrusion dot */
 @keyframes redPulse{0%,100%{box-shadow:0 0 4px #ef4444,0 0 10px rgba(239,68,68,0.4)}50%{box-shadow:0 0 10px #ef4444,0 0 22px rgba(239,68,68,0.8)}}
 .amap-intrusion-dot{width:12px;height:12px;border-radius:50%;background:#ef4444;border:1.5px solid rgba(255,255,255,0.9);animation:redPulse 1.2s ease-in-out infinite;cursor:pointer;pointer-events:auto;position:relative}
+/* Layout tree overlay */
+.layout-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;display:none;align-items:center;justify-content:center}
+.layout-overlay.show{display:flex}
+.layout-modal{background:#fff;border-radius:8px;width:960px;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.2)}
+.layout-modal .lm-hd{padding:16px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:700}
+.layout-modal .lm-hd .close{font-size:22px;cursor:pointer;color:var(--text-muted);line-height:1}
+.layout-modal .lm-hd .close:hover{color:var(--danger)}
+.layout-modal .lm-bd{padding:20px 24px;overflow-y:auto;flex:1}
+.tree-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+.tree-stat-item{text-align:center;padding:14px;border:1px solid var(--border);border-radius:6px;background:#f9fafb}
+.tree-stat-item .tsi-val{font-size:28px;font-weight:700;color:var(--accent)}
+.tree-stat-item .tsi-lbl{font-size:12px;color:var(--text-muted);margin-top:4px}
+.tree-node{padding-left:0;list-style:none;margin:0}
+.tree-node li{position:relative;padding:5px 0 5px 28px;font-size:14px;line-height:1.6}
+.tree-node li::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:1px;background:var(--border)}
+.tree-node li:last-child::before{height:16px}
+.tree-node li::after{content:'';position:absolute;left:12px;top:16px;width:16px;height:1px;background:var(--border)}
+.tree-node li .tree-tag{padding:2px 8px;border-radius:10px;font-size:11px;margin-left:8px}
+.tree-node li .tree-tag.green{background:#d4edda;color:#155724}
+.tree-node li .tree-tag.yellow{background:#fff3cd;color:#856404}
+.tree-node li .tree-tag.red{background:#f8d7da;color:#721c24}
+.tree-node li .tree-tag.blue{background:#d1ecf1;color:#0c5460}
+/* IMSI overlay */
+.imsi-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:999;display:none;align-items:center;justify-content:center}
+.imsi-overlay.show{display:flex}
+.imsi-modal{background:#fff;border-radius:8px;width:800px;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.2)}
+.imsi-modal .im-hd{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:700}
+.imsi-modal .im-hd .close{font-size:20px;cursor:pointer;color:var(--text-muted);line-height:1}
+.imsi-modal .im-bd{padding:16px 20px;overflow-y:auto;flex:1}
+.imsi-modal .im-ft{padding:10px 20px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
+.imsi-table{width:100%;border-collapse:collapse;font-size:12px}
+.imsi-table th{text-align:left;padding:8px 10px;background:#f5f6f8;border-bottom:2px solid var(--border);font-weight:600;color:var(--text-primary)}
+.imsi-table td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--text-secondary)}
+.imsi-table tr:hover td{background:#f0f7fc}
+.imsi-table .type-badge{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600}
+.imsi-table .type-badge.移动{background:#d1ecf1;color:#0c5460}
+.imsi-table .type-badge.联通{background:#fff3cd;color:#856404}
+.imsi-table .type-badge.电信{background:#d4edda;color:#155724}
 </style>
 </head>
 <body>
@@ -300,6 +366,7 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
       <button class="ni" data-page="map3d"><span>🏗️</span><span>三维地图定位</span></button>
       <div class="ngt">设备管控</div>
       <button class="ni" data-page="devices"><span>📡</span><span>设备管理</span></button>
+      <button class="ni" data-page="omc"><span>🛡️</span><span>OMC配置</span></button>
       <div class="ngt">系统设置</div>
       <button class="ni" data-page="settings"><span>⚙️</span><span>系统配置</span></button>
     </nav>
@@ -391,16 +458,54 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
       </div>
     </div>
 
+    <!-- PAGE: OMC配置 -->
+    <div class="page" id="page-omc">
+      <div class="omc-tabs">
+        <button class="omc-tab active" onclick="switchOmcTab('area')">📍 区域位置</button>
+        <button class="omc-tab" onclick="switchOmcTab('personnel')">👤 维护人员</button>
+        <button class="omc-tab" onclick="switchOmcTab('schedule')">⏰ 开关计划</button>
+        <button class="omc-tab" onclick="switchOmcTab('control')">📶 批量管控</button>
+      </div>
+      <div class="omc-panel active" id="omc-area">
+        <div style="display:flex;gap:8px;margin-bottom:10px"><button class="dash-btn start" onclick="addArea()">+ 添加学校</button><button class="dash-btn stop" onclick="deleteArea()">− 删除选中</button></div>
+        <table class="device-table" style="width:100%"><thead><tr><th style="width:30px">选</th><th>名称</th><th>类型</th><th>操作</th></tr></thead><tbody id="omcAreaTable"></tbody></table>
+        <div id="omcSubArea" style="margin-top:10px;display:none"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px">细分区域 — <b id="omcSubTitle"></b></div><div style="display:flex;gap:8px;margin-bottom:6px"><input id="omcSubName" placeholder="楼栋名称" style="padding:4px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px;width:150px"><button class="dash-btn start" onclick="addSubArea()" style="padding:4px 10px;font-size:11px">+ 添加楼栋</button></div><table class="device-table" style="width:100%"><thead><tr><th style="width:30px">选</th><th>名称</th><th>操作</th></tr></thead><tbody id="omcSubTable"></tbody></table></div>
+      </div>
+      <div class="omc-panel" id="omc-personnel">
+        <div style="display:flex;gap:8px;margin-bottom:10px"><button class="dash-btn start" onclick="addPersonnel()">+ 添加人员</button><button class="dash-btn stop" onclick="deletePersonnel()">− 删除选中</button></div>
+        <table class="device-table" style="width:100%"><thead><tr><th style="width:30px">选</th><th>姓名</th><th>手机号</th><th>负责区域</th><th>操作</th></tr></thead><tbody id="omcPersonnelTable"></tbody></table>
+      </div>
+      <div class="omc-panel" id="omc-schedule">
+        <div style="display:flex;gap:8px;margin-bottom:10px"><button class="dash-btn start" onclick="addSchedule()">+ 创建计划</button><button class="dash-btn stop" onclick="deleteSchedule()">− 删除选中</button></div>
+        <table class="device-table" style="width:100%"><thead><tr><th style="width:30px">选</th><th>名称</th><th>模板</th><th>时段</th><th>状态</th><th>操作</th></tr></thead><tbody id="omcScheduleTable"></tbody></table>
+      </div>
+      <div class="omc-panel" id="omc-control">
+        <div style="display:flex;gap:8px;margin-bottom:10px"><button class="dash-btn start" onclick="omcBatchStart()">▶ 开启屏蔽</button><button class="dash-btn stop" onclick="omcBatchStop()">⏹ 关闭屏蔽</button></div>
+        <table class="device-table" style="width:100%"><thead><tr><th style="width:30px"><input type="checkbox" id="omcCheckAll" onchange="omcToggleAll(this)"></th><th>名称</th><th>区域</th><th>状态</th><th>信号</th></tr></thead><tbody id="omcDeviceTable"></tbody></table>
+      </div>
+    </div>
     <!-- PAGE: 系统配置 -->
     <div class="page" id="page-settings">
-      <div class="panel" style="max-width:500px">
-        <div class="panel-hd"><span class="dot b"></span>基本配置</div>
-        <div class="panel-bd" style="padding:20px;color:var(--text-muted);font-size:13px;line-height:2.2">
-          系统名称：通信安全管控定位系统<br>版本号：v2.0<br>地图引擎：MapLibre GL JS<br>
-          三维建筑：支持建筑拉伸/分层显示<br>室内定位：楼层级精度<br>
-          支持协议：2G/3G/4G/5G 信号监测<br>管控模式：白名单+黑名单+信号侦测
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div class="panel" style="flex:1;min-width:380px"><div class="panel-hd"><span class="dot b"></span>系统参数配置</div><div class="panel-bd" style="padding:14px 18px;font-size:12px">
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)">网络参数</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">服务器IP</label><input id="cfgServerIp" value="192.168.1.149" style="width:130px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">端口号</label><input value="49000" disabled style="width:80px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px;background:#f5f5f5"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">通信方式</label><input value="TCP/IP - 本地网口" disabled style="width:170px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px;background:#f5f5f5"></div>
+          <div style="font-size:11px;color:var(--text-muted);margin:12px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border)">定位参数</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">定位间隔</label><select id="cfgScanInterval" style="padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px"><option value="1000">1秒</option><option value="2000" selected>2秒</option><option value="3000">3秒</option><option value="5000">5秒</option></select></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">TxPower</label><input id="cfgTxPower" value="-30" style="width:60px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px"><span style="font-size:11px;color:var(--text-muted)"> dBm @1m</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">路径损耗</label><input id="cfgPathLoss" value="3.0" style="width:60px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px"><span style="font-size:11px;color:var(--text-muted)"> n (城市=3.0)</span></div>
+          <div style="font-size:11px;color:var(--text-muted);margin:12px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--border)">系统参数</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">系统名称</label><input id="cfgSysName" value="通信安全智能管控定位系统" style="width:200px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px"></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><label style="width:60px;font-size:12px;color:var(--text-secondary);text-align:right;flex-shrink:0">版本号</label><input value="v3.0-demo" disabled style="width:130px;padding:6px 8px;border:1px solid var(--border);border-radius:3px;font-size:12px;background:#f5f5f5"></div>
+          <button class="dash-btn start" onclick="saveSysConfig()" style="margin:12px 0 0 68px;padding:6px 18px">保存配置</button></div>
         </div>
-      </div>
+        <div class="panel" style="flex:1;min-width:300px"><div class="panel-hd"><span class="dot g"></span>系统信息</div><div class="panel-bd" style="padding:14px 18px;font-size:12px;line-height:2.3">
+          <b>产品名称</b><br>通信安全智能管控定位系统<br><b>版本号</b><br>v3.0-demo<br><b>构建日期</b><br>2026-07-03<br>
+          <b>地图引擎</b><br>高德 JS API v2.0 + MapLibre GL JS<br><b>定位模式</b><br>RSSI 场强三边定位<br>
+          <b>建筑数据</b><br>昆明市区 1,384 栋 AMap 白模<br><b>覆盖协议</b><br>GSM / WCDMA / LTE / NR<br>
+        </div></div>
     </div>
   </div>
 </div>
@@ -509,6 +614,11 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
       <div class="field"><label>设备类型</label><select id="addDevType"><option>4G侦测仪</option><option>5G屏蔽器</option><option>WiFi探针</option><option>全频段侦码</option></select></div>
       <div class="field"><label>所属建筑</label><select id="addDevBld"></select></div>
       <div class="field"><label>所在楼层</label><input type="number" id="addDevFloor" min="1" value="1"></div>
+      <div class="field"><label>用户编号</label><input type="text" id="addDevUserNo" placeholder="例如：1234"></div>
+      <div class="field"><label>从机个数</label><input type="number" id="addDevSlaves" min="0" value="0"></div>
+      <div class="field"><label>区域位置</label><select id="addDevArea"></select></div>
+      <div class="field"><label>开关计划</label><select id="addDevSchedule"></select></div>
+      <div class="field"><label>维护人员</label><select id="addDevPersonnel"></select></div>
     </div>
     <div class="modal-ft">
       <button class="dash-btn stop" onclick="closeAddModal()">取消</button>
@@ -526,19 +636,24 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
     <span class="ov-time" id="m3dTime"></span>
     <span class="ov-user">USER ▼</span>
   </div>
+  <!-- Alert bar below title -->
+  <div style="position:absolute;top:46px;left:0;right:0;height:28px;z-index:8;display:flex;align-items:center;background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);padding:0 16px">
+    <span style="color:var(--accent);font-size:11px;font-weight:600;margin-right:10px;white-space:nowrap">⚠ 告警信息</span>
+    <div style="flex:1;overflow:hidden"><div id="m3dAlertTop" style="white-space:nowrap;font-size:11px;color:var(--text-secondary)"></div></div>
+  </div>
   <!-- Map fills background -->
-  <div style="position:absolute;inset:48px 0 36px 0;z-index:0" class="map-container"><div id="map3dFull" class="map"></div></div>
+  <div style="position:absolute;inset:74px 0 48px 0;z-index:0" class="map-container"><div id="map3dFull" class="map"></div></div>
   <!-- Left floating panels -->
-  <div style="position:absolute;top:56px;left:8px;bottom:44px;width:260px;z-index:5;display:flex;flex-direction:column;gap:5px;pointer-events:none;overflow-y:auto">
+  <div style="position:absolute;top:82px;left:8px;bottom:56px;width:260px;z-index:5;display:flex;flex-direction:column;gap:5px;pointer-events:none;overflow-y:auto"><!-- Left panels -->
     <!-- Device Interaction Panel -->
-    <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">📡 设备管理<span class="m3d-dev-add-btn" onclick="openAddModalFromMap()">+ 添加</span><span class="m3d-dev-add-btn" onclick="startRssiScan()" style="background:#ef4444;margin-left:3px">📡 扫描</span></div><div class="gv-bd" id="m3dDevCards" style="padding:0;font-size:11px;max-height:260px;overflow-y:auto"></div></div>
+    <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">📡 设备管理<span class="m3d-dev-add-btn" onclick="openAddModalFromMap()">+ 添加</span></div><div class="gv-bd" id="m3dDevCards" style="padding:0;font-size:11px;max-height:260px;overflow-y:auto"></div></div>
     <!-- Signal Strength Bar Chart -->
     <div class="gv-panel" style="pointer-events:auto;flex:1;min-height:0"><div class="gv-hd">📶 信号强度分布</div><div class="gv-bd" id="m3dSigChart" style="padding:8px 10px;font-size:12px;overflow-y:auto;max-height:280px"></div></div>
     <!-- Building Tree -->
     <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">📍 昆明五区</div><div class="gv-bd" id="m3dBuildTree" style="font-size:12px;overflow-y:auto;max-height:160px"></div></div>
   </div>
   <!-- Right floating panels -->
-  <div style="position:absolute;top:56px;right:8px;bottom:44px;width:280px;z-index:5;display:flex;flex-direction:column;gap:5px;pointer-events:none;overflow-y:auto">
+  <div style="position:absolute;top:82px;right:8px;bottom:56px;width:280px;z-index:5;display:flex;flex-direction:column;gap:5px;pointer-events:none;overflow-y:auto">
     <!-- Rotating Gauge -->
     <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">⏱ 实时管控率</div><div class="gv-bd" style="padding:8px;display:flex;justify-content:center"><svg viewBox="0 0 140 120" width="160" height="130" id="m3dGaugeSvg"></svg></div></div>
     <!-- Donut Status -->
@@ -548,7 +663,6 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
     <!-- Building Detail -->
     <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">🔍 建筑详情</div><div class="gv-bd" style="padding:8px 10px;font-size:12px;color:var(--text-secondary);line-height:1.6" id="m3dBldInfo">点击建筑查看详情</div></div>
     <!-- Positioning Result -->
-    <div class="gv-panel" style="pointer-events:auto"><div class="gv-hd">🎯 定位结果</div><div class="gv-bd" style="padding:8px 10px;font-size:12px;color:var(--text-secondary);line-height:1.6" id="m3dPosResult">等待扫描...</div></div>
   </div>
   <!-- Map controls -->
   <div class="map-ctrl" style="bottom:50px">
@@ -560,17 +674,48 @@ body{font-family:var(--font);background:var(--bg-deep);color:var(--text-primary)
     <button onclick="rotateView(-45)">↺</button>
   </div>
   <!-- Floor indicator + legend -->
-  <div style="position:absolute;top:60px;left:274px;z-index:5;pointer-events:none;background:#fff;border:1px solid var(--border);border-radius:4px;padding:6px 12px;font-size:11px;color:var(--text-secondary);box-shadow:0 1px 4px rgba(0,0,0,0.06)" id="m3dFloor">当前楼层: <span style="color:var(--accent);font-weight:700">全部</span></div>
+  <div style="position:absolute;top:86px;left:274px;z-index:5;pointer-events:none;background:#fff;border:1px solid var(--border);border-radius:4px;padding:6px 12px;font-size:11px;color:var(--text-secondary);box-shadow:0 1px 4px rgba(0,0,0,0.06)" id="m3dFloor">当前楼层: <span style="color:var(--accent);font-weight:700">全部</span></div>
   <div class="map-legend" style="bottom:60px;left:274px"><div class="li"><span class="lc" style="background:#10b981"></span>在线</div><div class="li"><span class="lc" style="background:#f59e0b"></span>告警</div><div class="li"><span class="lc" style="background:#ef4444"></span>离线</div></div>
-  <!-- Bottom alert -->
-  <div class="ov-bot">
-    <span class="ov-ar">▶▶▶</span><span class="ov-al">告警信息</span>
-    <div class="ov-scroll"><div class="ov-sct" id="m3dAlertText"></div></div>
-    <span class="ov-ar">◀◀◀</span>
-  </div>
+  <!-- Bottom toolbar -->
+    <div class="ov-bot">
+      <div style="position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:10px">
+        <button class="ov-bot-btn primary" onclick="openLayoutTree()" title="全局布局">🌐 全局布局</button>
+        <button class="ov-bot-btn" onclick="batchControl('start')" title="全部启动">▶ 全部启动</button>
+        <button class="ov-bot-btn" onclick="batchControl('stop')" title="全部停止">⏹ 全部停止</button>
+        <button class="ov-bot-btn" onclick="batchControl('restart')" title="全部重启">↻ 全部重启</button>
+        <button class="ov-bot-btn danger" onclick="openImsiPanel()" title="IMSI采集">📡 IMSI采集</button>
+      </div>
+      <div style="margin-left:auto"></div>
+    </div>
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- ============ 全局布局 TREE OVERLAY ============ -->
+<div class="layout-overlay" id="layoutOverlay">
+  <div class="layout-modal">
+    <div class="lm-hd">
+      <span>🌐 全局布局 — 通信安全管控系统</span>
+      <span class="close" onclick="closeLayoutTree()">✕</span>
+    </div>
+    <div class="lm-bd" id="layoutTreeContent"></div>
+  </div>
+</div>
+
+<!-- ============ IMSI 采集 OVERLAY ============ -->
+<div class="imsi-overlay" id="imsiOverlay">
+  <div class="imsi-modal">
+    <div class="im-hd">
+      <span>📡 IMSI 采集 — 通信安全管控系统</span>
+      <span class="close" onclick="closeImsiPanel()">✕</span>
+    </div>
+    <div class="im-bd" id="imsiContent"></div>
+    <div class="im-ft">
+      <button class="dash-btn restart" onclick="closeImsiPanel()">关闭</button>
+      <button class="dash-btn start" onclick="refreshImsi()">🔄 刷新采集</button>
+    </div>
+  </div>
+</div>
 
 <script>
 window._AMapSecurityConfig = {securityJsCode:'b7dffccc00c3c783afd07ede3278c460'};
@@ -648,6 +793,14 @@ function buildAmapBldIndex(){
   _amapBldByIdx={};
   all.forEach(function(b){_amapBldByIdx[b.idx]=b});
   console.log('[AMap bld] indexed '+all.length+' buildings from AMap data, top100 ready');
+  // Update virtual device coordinates silently with real building data
+  initVirtualDevices(true);
+  // Refresh AMap markers if overlay is already visible
+  if(map3d && document.getElementById('map3dOverlay').classList.contains('show')){
+    renderAmapDeviceMarkers();
+    renderM3dDeviceList();
+    updateSignalChart();
+  }
 }
 
 function checkReady(){
@@ -666,34 +819,68 @@ var _bldByIdx = {};  // full building index: idx -> {lng,lat,height,floors,id}
 var _amapBldIdx = [];  // AMap building index (top 100 from kmBuildingsAmap)
 var _amapBldByIdx = {}; // AMap full building lookup
 var _placeMode = false;
-var _amapMarkers = [];  // stores {marker, el, height, dev} — AMap.Marker + CSS transform height
-var _amapMarkerHandler = null;  // move listener ref
+var _amapMarkers = [];  // stores {marker, el, dev} — AMap.Marker at ground level
 var _clickLng=0, _clickLat=0;  // AMap click position for device placement
 
 // ==================== VIRTUAL DEVICE DATA ====================
-(function initVirtualDevices(){
-  // 12 simulated devices in device list only (not on 3D map)
+function initVirtualDevices(replace){
+  // Always create 12 devices with clustered coords on first run
+  // replace=true means kmBuildingsAmap loaded — silently swap coords to real buildings
+  if(!replace && DEVICES.some(function(d){return d._virtual})) return;
+  
   var types=['4G侦测仪','5G屏蔽器','WiFi探针','全频段侦码'];
   var names=['管控主机-A','侦测单元-01','屏蔽器-B3','信号采集器-C1','5G侦码器-D2',
              'WiFi探针-E1','管控主机-B','屏蔽器-F2','侦测单元-02','全频侦码-G1',
              'WiFi探针-H3','5G屏蔽器-J1'];
-  var refLng=102.699, refLat=25.037;
+  var centerLng=102.707, centerLat=25.049;
+
+  if(replace){
+    // kmBuildingsAmap loaded — update coordinates of existing devices to real buildings
+    var bldData=[];
+    if(typeof kmBuildingsAmap!=='undefined' && kmBuildingsAmap.features){
+      kmBuildingsAmap.features.forEach(function(f,i){
+        if(!f.geometry||!f.geometry.coordinates||!f.geometry.coordinates[0]) return;
+        var coords=f.geometry.coordinates[0];
+        var sumLng=0,sumLat=0;
+        coords.forEach(function(c){sumLng+=c[0];sumLat+=c[1]});
+        var clng=sumLng/coords.length, clat=sumLat/coords.length;
+        var dist=Math.sqrt(Math.pow(clng-centerLng,2)+Math.pow(clat-centerLat,2));
+        bldData.push({idx:i,lng:clng,lat:clat,dist:dist,h:f.properties.height||30,floors:f.properties.floors||8});
+      });
+    }
+    bldData.sort(function(a,b){return a.dist-b.dist});
+    // Update existing virtual devices with real building data
+    var vdevs=DEVICES.filter(function(d){return d._virtual});
+    for(var i=0;i<vdevs.length;i++){
+      var bld=bldData[i]||{lng:vdevs[i].lng,lat:vdevs[i].lat,h:30,floors:8};
+      vdevs[i].lng=bld.lng; vdevs[i].lat=bld.lat;
+      vdevs[i].bldH=bld.h; vdevs[i].bldFloors=Math.max(1,bld.floors);
+      vdevs[i].bldId=bld.idx;
+      vdevs[i].floor=1+Math.floor(Math.random()*Math.max(1,bld.floors));
+    }
+    console.log('[Devices] updated '+vdevs.length+' virtual devices with real building coords');
+    return;
+  }
+
+  // First run — create 12 devices with clustered coords (visible immediately)
   for(var i=0;i<12;i++){
     _devIdCounter++;
-    var floor=1+Math.floor(Math.random()*10);
+    var lng=centerLng+(Math.random()-0.5)*0.002;
+    var lat=centerLat+(Math.random()-0.5)*0.002;
     var bldH=15+Math.floor(Math.random()*40);
     var bldF=Math.max(1,Math.round(bldH/3.5));
-    var devH=(floor-1)*bldH/bldF + bldH/bldF/2;
+    var floor=1+Math.floor(Math.random()*bldF);
     DEVICES.push({
       id:'dev'+_devIdCounter, name:names[i], type:types[i%4],
-      bldId:i, bldH:bldH, bldFloors:bldF, floor:floor, height:devH,
+      bldId:i, bldH:bldH, bldFloors:bldF, floor:floor, height:0,
       sig:-(35+Math.floor(Math.random()*30)), st:'on',
-      lng:refLng+(Math.random()-0.5)*0.004, lat:refLat+(Math.random()-0.5)*0.004,
+      lng:lng, lat:lat,
       kp:'管理员', _virtual:true
     });
   }
-  console.log('[Devices] 12 virtual devices created');
-})();
+  console.log('[Devices] 12 virtual devices created (clustered)');
+}
+initVirtualDevices();  // Initial run (may use random data if kmBuildingsAmap not yet loaded)
 
 // ==================== INTRUSION DATA ====================
 // Intrusions are detected by devices — no simulated data
@@ -701,7 +888,43 @@ var _clickLng=0, _clickLat=0;  // AMap click position for device placement
   // All simulated intrusions removed
 })();
 
+// ==================== OMC DATA ====================
+var OMC_AREAS=[],OMC_PERSONNEL=[],OMC_SCHEDULES=[],_omcIdCounter=0,_omcSelectedArea=null;
+(function initOmcData(){_omcIdCounter=100;
+  OMC_AREAS.push({id:_omcIdCounter++,name:'昆明理工大学',type:'school',parentId:null});
+  OMC_AREAS.push({id:_omcIdCounter++,name:'教学楼A栋',type:'building',parentId:100});
+  OMC_AREAS.push({id:_omcIdCounter++,name:'宿舍楼B栋',type:'building',parentId:100});
+  OMC_AREAS.push({id:_omcIdCounter++,name:'云南师范大学',type:'school',parentId:null});
+  OMC_PERSONNEL.push({id:_omcIdCounter++,name:'张工',phone:'13888888881',areaIds:[100]});
+  OMC_PERSONNEL.push({id:_omcIdCounter++,name:'李工',phone:'13888888882',areaIds:[103]});
+  OMC_SCHEDULES.push({id:_omcIdCounter++,name:'上课时段屏蔽',areaId:100,template:'day',timeSlots:[{start:'08:00',end:'12:00'},{start:'14:00',end:'18:00'}],enabled:true,validFrom:'',validTo:''});
+})();
+function switchOmcTab(tab){document.querySelectorAll('#page-omc .omc-tab').forEach(function(t){t.classList.remove('active')});document.querySelectorAll('#page-omc .omc-panel').forEach(function(p){p.classList.remove('active')});document.querySelector('#page-omc .omc-tab[onclick*="'+tab+'"]').classList.add('active');document.getElementById('omc-'+tab).classList.add('active');if(tab==='area')renderOmcAreas();else if(tab==='personnel')renderOmcPersonnel();else if(tab==='schedule')renderOmcSchedules();else if(tab==='control')renderOmcControl();}
+function renderOmcAreas(){var schools=OMC_AREAS.filter(function(a){return a.type==='school'});document.getElementById('omcAreaTable').innerHTML=schools.map(function(a){return '<tr><td><input type="radio" name="omcArea" value="'+a.id+'" onchange="selectOmcArea('+a.id+')"></td><td>'+a.name+'</td><td>学校</td><td><button class="dash-btn stop" onclick="editArea('+a.id+')" style="padding:2px 8px;font-size:10px">编辑</button></td></tr>';}).join('')||'<tr><td colspan="4" style="color:var(--text-muted)">暂无数据</td></tr>';if(_omcSelectedArea)selectOmcArea(_omcSelectedArea);}
+function selectOmcArea(id){_omcSelectedArea=id;var area=OMC_AREAS.find(function(a){return a.id===id});if(!area)return;document.getElementById('omcSubArea').style.display='block';document.getElementById('omcSubTitle').textContent=area.name;var subs=OMC_AREAS.filter(function(a){return a.parentId===id});document.getElementById('omcSubTable').innerHTML=subs.map(function(a){return '<tr><td></td><td>'+a.name+'</td><td><button class="dash-btn stop" onclick="deleteAreaById('+a.id+')" style="padding:2px 8px;font-size:10px">删除</button></td></tr>';}).join('')||'<tr><td colspan="3" style="color:var(--text-muted)">暂无楼栋</td></tr>';}
+function addArea(){showOmcPrompt('添加学校','学校名称',function(name){_omcIdCounter++;OMC_AREAS.push({id:_omcIdCounter,name:name,type:'school',parentId:null});renderOmcAreas();showToast('已添加','ok');});}
+function addSubArea(){if(!_omcSelectedArea){showToast('请先选择学校','warn');return}var name=document.getElementById('omcSubName').value.trim();if(!name){showToast('请输入楼栋名称','warn');return}_omcIdCounter++;OMC_AREAS.push({id:_omcIdCounter,name:name,type:'building',parentId:_omcSelectedArea});document.getElementById('omcSubName').value='';selectOmcArea(_omcSelectedArea);showToast('已添加','ok');}
+function deleteArea(){var sel=document.querySelector('input[name="omcArea"]:checked');if(!sel){showToast('请选择学校','warn');return}deleteAreaById(parseInt(sel.value));}
+function deleteAreaById(id){if(!confirm('确认删除？'))return;OMC_AREAS=OMC_AREAS.filter(function(a){return a.id!==id&&a.parentId!==id});if(_omcSelectedArea===id)_omcSelectedArea=null;renderOmcAreas();showToast('已删除','ok');}
+function editArea(id){var a=OMC_AREAS.find(function(x){return x.id===id});if(!a)return;showOmcPrompt('编辑名称','名称',function(name){a.name=name;renderOmcAreas()},a.name);}
+function renderOmcPersonnel(){document.getElementById('omcPersonnelTable').innerHTML=OMC_PERSONNEL.map(function(p){var areas=OMC_AREAS.filter(function(a){return p.areaIds.indexOf(a.id)>=0}).map(function(a){return a.name}).join(', ');return '<tr><td><input type="radio" name="omcPersonnel" value="'+p.id+'"></td><td>'+p.name+'</td><td>'+p.phone+'</td><td>'+areas+'</td><td><button class="dash-btn stop" onclick="editPersonnel('+p.id+')" style="padding:2px 8px;font-size:10px">编辑</button></td></tr>';}).join('')||'<tr><td colspan="5" style="color:var(--text-muted)">暂无数据</td></tr>';}
+function addPersonnel(){var areas=OMC_AREAS.filter(function(a){return a.type==='school'});showOmcForm('添加维护人员',[{label:'姓名',id:'pName'},{label:'手机号',id:'pPhone'}],areas,function(vals){_omcIdCounter++;OMC_PERSONNEL.push({id:_omcIdCounter,name:vals.pName,phone:vals.pPhone,areaIds:vals.areaIds||[]});renderOmcPersonnel();showToast('已添加','ok');});}
+function deletePersonnel(){var sel=document.querySelector('input[name="omcPersonnel"]:checked');if(!sel){showToast('请选择人员','warn');return}if(!confirm('确认删除？'))return;OMC_PERSONNEL=OMC_PERSONNEL.filter(function(p){return p.id!==parseInt(sel.value)});renderOmcPersonnel();showToast('已删除','ok');}
+function editPersonnel(id){var p=OMC_PERSONNEL.find(function(x){return x.id===id});if(!p)return;var areas=OMC_AREAS.filter(function(a){return a.type==='school'});showOmcForm('编辑维护人员',[{label:'姓名',id:'pName',val:p.name},{label:'手机号',id:'pPhone',val:p.phone}],areas,function(vals){p.name=vals.pName;p.phone=vals.pPhone;p.areaIds=vals.areaIds||[];renderOmcPersonnel()},p.areaIds);}
+function renderOmcSchedules(){document.getElementById('omcScheduleTable').innerHTML=OMC_SCHEDULES.map(function(s){var times=s.timeSlots.map(function(t){return t.start+'-'+t.end}).join(', ');var valid=s.validFrom?'期: '+s.validFrom+(s.validTo?'~'+s.validTo:''):'';return '<tr><td><input type="radio" name="omcSchedule" value="'+s.id+'"></td><td>'+s.name+'</td><td>'+(s.template==='day'?'日模板':'周模板')+(valid?'<br><span style="font-size:10px;color:var(--text-muted)">'+valid+'</span>':'')+'</td><td>'+times+'</td><td><span class="sb '+(s.enabled?'on':'off')+'">'+(s.enabled?'启用':'禁用')+'</span></td><td><button class="dash-btn start" onclick="toggleSchedule('+s.id+')" style="padding:2px 8px;font-size:10px">'+(s.enabled?'禁用':'启用')+'</button></td></tr>';}).join('')||'<tr><td colspan="6" style="color:var(--text-muted)">暂无计划</td></tr>';}
+function addSchedule(){var modal=document.createElement('div');modal.className='omc-modal';modal.innerHTML='<div style="max-width:480px"><h3>创建开关计划</h3><div class="row"><label>名称</label><input id="schName" placeholder="计划名称"></div><div class="row"><label>模板</label><select id="schTemplate"><option value="day">日模板</option><option value="week">周模板</option></select></div><div class="row"><label>有效期</label><input id="schFrom" type="date" style="flex:0.8"> — <input id="schTo" type="date" style="flex:0.8"></div><div style="font-size:12px;color:var(--text-secondary);margin:6px 0 0 68px">屏蔽时段</div><div id="schSlots" style="margin-left:68px"></div><button onclick="addSlotRow()" style="margin:4px 0 0 68px;padding:2px 10px;font-size:10px;cursor:pointer;border:1px dashed var(--accent);color:var(--accent);background:none;border-radius:3px">+ 添加时段</button><div class="btns"><button class="cancel">取消</button><button class="ok">确认</button></div></div>';document.body.appendChild(modal);addSlotRow();addSlotRow();modal.querySelector('.cancel').onclick=function(){modal.remove()};modal.querySelector('.ok').onclick=function(){var name=document.getElementById('schName').value.trim();if(!name){showToast('请输入名称','warn');return}var template=document.getElementById('schTemplate').value;var from=document.getElementById('schFrom').value,to=document.getElementById('schTo').value;var slots=[];document.querySelectorAll('#schSlots .sch-row').forEach(function(r){var s=r.querySelector('.sch-start').value,e=r.querySelector('.sch-end').value;if(s&&e)slots.push({start:s,end:e})});if(!slots.length){showToast('至少添加一个时段','warn');return}_omcIdCounter++;OMC_SCHEDULES.push({id:_omcIdCounter,name:name,areaId:null,template:template,timeSlots:slots,enabled:true,validFrom:from,validTo:to});modal.remove();renderOmcSchedules();showToast('已创建','ok');}}
+function addSlotRow(){var row=document.createElement('div');row.className='sch-row';row.innerHTML='<input class="sch-start" type="time" value="08:00"> — <input class="sch-end" type="time" value="18:00"> <button style="background:none;border:none;color:#ef4444;cursor:pointer;font-size:14px" title="删除" onclick="this.parentNode.remove()">✕</button>';var slotsDiv=document.getElementById('schSlots');if(slotsDiv)slotsDiv.appendChild(row);}
+function deleteSchedule(){var sel=document.querySelector('input[name="omcSchedule"]:checked');if(!sel){showToast('请选择计划','warn');return}if(!confirm('确认删除？'))return;OMC_SCHEDULES=OMC_SCHEDULES.filter(function(s){return s.id!==parseInt(sel.value)});renderOmcSchedules();showToast('已删除','ok');}
+function toggleSchedule(id){var s=OMC_SCHEDULES.find(function(x){return x.id===id});if(!s)return;s.enabled=!s.enabled;renderOmcSchedules();}
+function renderOmcControl(){document.getElementById('omcCheckAll').checked=false;document.getElementById('omcDeviceTable').innerHTML=DEVICES.map(function(d){return '<tr><td><input type="checkbox" class="omc-dev-check" value="'+d.id+'"></td><td>'+d.name+'</td><td>'+d.floor+'F</td><td><span class="sb '+(d.st==='on'?'on':'off')+'">'+(d.st==='on'?'在线':'离线')+'</span></td><td>'+d.sig+' dBm</td></tr>';}).join('')||'<tr><td colspan="5" style="color:var(--text-muted)">暂无设备</td></tr>';}
+function omcToggleAll(cb){document.querySelectorAll('.omc-dev-check').forEach(function(c){c.checked=cb.checked})}
+function omcBatchStart(){var ids=[];document.querySelectorAll('.omc-dev-check:checked').forEach(function(c){ids.push(c.value)});if(!ids.length){showToast('请勾选设备','warn');return}DEVICES.forEach(function(d){if(ids.indexOf(d.id)>=0)d.st='on'});updateAllViews();renderOmcControl();showToast('已开启 '+ids.length+' 台','ok');}
+function omcBatchStop(){var ids=[];document.querySelectorAll('.omc-dev-check:checked').forEach(function(c){ids.push(c.value)});if(!ids.length){showToast('请勾选设备','warn');return}DEVICES.forEach(function(d){if(ids.indexOf(d.id)>=0)d.st='off'});updateAllViews();renderOmcControl();showToast('已关闭 '+ids.length+' 台','ok');}
+function showOmcPrompt(title,label,cb,defVal){var modal=document.createElement('div');modal.className='omc-modal';modal.innerHTML='<div><h3>'+title+'</h3><div class="row"><label>'+label+'</label><input id="omcModalInput" value="'+(defVal||'')+'"></div><div class="btns"><button class="cancel">取消</button><button class="ok">确认</button></div></div>';document.body.appendChild(modal);modal.querySelector('.cancel').onclick=function(){modal.remove()};modal.querySelector('.ok').onclick=function(){var v=document.getElementById('omcModalInput').value.trim();if(v){modal.remove();cb(v)}};document.getElementById('omcModalInput').focus();}
+function showOmcForm(title,fields,areas,cb){var modal=document.createElement('div');modal.className='omc-modal';var fieldsHtml=fields.map(function(f){return '<div class="row"><label>'+f.label+'</label><input id="'+f.id+'" value="'+(f.val||'')+'"></div>'}).join('');var areaOpts=areas.map(function(a){return '<option value="'+a.id+'">'+a.name+'</option>'}).join('');modal.innerHTML='<div><h3>'+title+'</h3>'+fieldsHtml+'<div class="row"><label>负责区域</label><select id="omcFormAreas" multiple style="height:60px">'+areaOpts+'</select></div><div class="btns"><button class="cancel">取消</button><button class="ok">确认</button></div></div>';document.body.appendChild(modal);modal.querySelector('.cancel').onclick=function(){modal.remove()};modal.querySelector('.ok').onclick=function(){var vals={};fields.forEach(function(f){vals[f.id]=document.getElementById(f.id).value.trim()});var sel=document.getElementById('omcFormAreas').selectedOptions;vals.areaIds=[];for(var i=0;i<sel.length;i++)vals.areaIds.push(parseInt(sel[i].value));modal.remove();cb(vals)};}
+function saveSysConfig(){_cfgScanInterval=parseInt(document.getElementById('cfgScanInterval').value);_txPower=parseFloat(document.getElementById('cfgTxPower').value)||-30;_pathLossN=parseFloat(document.getElementById('cfgPathLoss').value)||3.0;showToast('配置已保存','ok');}
 // ==================== MAPS ====================
+
 var mapDash=null, mapGv=null, map3d=null;
 var gvClock=null, m3dClock=null, m3dGaugeTimer=null;
 var view3d=true;
@@ -978,11 +1201,19 @@ function adjustHeights(map,markers){
 
 function initMaps(){
   var cx=102.699, cy=25.037;
+  // Compute device cluster center for AMap 3D
+  var devCx=cx, devCy=cy;
+  var vdevs=DEVICES.filter(function(d){return d._virtual});
+  if(vdevs.length>0){
+    var sumLng=0,sumLat=0;
+    vdevs.forEach(function(d){sumLng+=d.lng;sumLat+=d.lat});
+    devCx=sumLng/vdevs.length; devCy=sumLat/vdevs.length;
+  }
   // Dashboard: AMap 3D preview (replaces MapLibre 2D)
   if(typeof AMap!=='undefined'){
     try{
       mapDash=new AMap.Map('mapDash',{
-        center:[cx,cy],zoom:17,viewMode:'3D',pitch:55,rotation:-20,
+        center:[devCx,devCy],zoom:17,viewMode:'3D',pitch:55,rotation:-20,
         zooms:[3,22],
         layers:[new AMap.TileLayer(),new AMap.Buildings({zooms:[14,22],wallColor:'rgba(200,200,200,0.8)',roofColor:'rgba(180,180,180,0.9)'})],
         mapStyle:'amap://styles/light'
@@ -997,7 +1228,7 @@ function initMaps(){
     try{
       var _amapBuildings=new AMap.Buildings({zooms:[14,22],wallColor:'rgba(200,200,200,0.8)',roofColor:'rgba(180,180,180,0.9)'});
       map3d=new AMap.Map('map3dFull',{
-        center:[cx,cy],zoom:17,viewMode:'3D',pitch:60,rotation:-30,
+        center:[devCx,devCy],zoom:17,viewMode:'3D',pitch:60,rotation:-30,
         zooms:[3,22],doubleClickZoom:false,
         layers:[new AMap.TileLayer(),_amapBuildings],
         mapStyle:'amap://styles/light'
@@ -1093,77 +1324,23 @@ function estimateFloorFromClick(lng,lat,building){
   }
 }
 
-// ==================== AMAP 3D MARKER RENDERING (Object3D for true 3D positioning) ====================
-var _obj3dLayer = null;  // 3D object layer
+// ==================== AMAP 2D GROUND MARKER RENDERING (flat ground markers, no 3D height) ====================
 
 function renderAmapDeviceMarkers(){
   if(!map3d){console.warn('[AMap markers] map3d not ready');return}
   // Clean old markers
-  if(_amapMarkerHandler){
-    try{map3d.off('moveend',_amapMarkerHandler)}catch(e){}
-    try{map3d.off('zoomchange',_amapMarkerHandler)}catch(e){}
-    try{map3d.off('moving',_amapMarkerHandler)}catch(e){}
-    try{map3d.off('rotatechange',_amapMarkerHandler)}catch(e){}
-    _amapMarkerHandler=null;
-  }
-  // Remove old 3D objects / DOM markers
-  if(_obj3dLayer){try{_obj3dLayer.clear()}catch(e){}}
   _amapMarkers.forEach(function(item){
     try{if(item.marker)map3d.remove(item.marker)}catch(e){}
   });
   _amapMarkers=[];
 
-  // Try Object3D first (true 3D space, locks to buildings)
-  if(typeof AMap.Object3D!=='undefined' && typeof AMap.Object3DLayer!=='undefined'){
-    console.log('[AMap markers] using Object3D 3D primitives');
-    if(!_obj3dLayer){
-      _obj3dLayer=new AMap.Object3DLayer();
-      map3d.add(_obj3dLayer);
-    }
-    DEVICES.forEach(function(d){
-      if(!d.lng||!d.lat) return;
-      var bldH=d.bldH||15, bldF=d.bldFloors||4;
-      var deviceH=(d.floor-1)*bldH/bldF + bldH/bldF/2;
-      var color=d.st==='on'?[0.063,0.725,0.506]:d.st==='wn'?[0.961,0.62,0.043]:[0.937,0.267,0.267];
-      try{
-        // Small vertical cylinder as 3D marker
-        var cyl=new AMap.Object3D.Mesh({
-          geometry: new AMap.Object3D.CylinderGeometry(1.5,1.5,deviceH*0.3+2,8),
-          position: [d.lng,d.lat,deviceH],
-          rotation: [0,0,0]
-        });
-        _obj3dLayer.add(cyl);
-        _amapMarkers.push({obj:cyl, height:deviceH, dev:d});
-      }catch(e2){
-        // Fallback: use RoundPoint
-        try{
-          var rp=new AMap.Object3D.RoundPoint({
-            center:[d.lng,d.lat,deviceH], radius:3,
-            color:color
-          });
-          _obj3dLayer.add(rp);
-          _amapMarkers.push({obj:rp, height:deviceH, dev:d});
-        }catch(e3){
-          console.warn('[AMap 3D] Object3D failed for',d.name,e3);
-        }
-      }
-    });
-    if(_amapMarkers.length>0){
-      console.log('[AMap 3D] placed '+_amapMarkers.length+' 3D markers');
-      return;  // Success — no need for DOM markers
-    }
-  }
-
-  // Fallback: AMap.Marker (ground pos) + CSS transform on content (3D height)
-  console.log('[AMap markers] Object3D unavailable, using AMap.Marker+CSS');
+  // 2D ground-level markers — AMap.Marker at building base (no Object3D / no height offset)
   DEVICES.forEach(function(d){
-    if(!d.lng||!d.lat || d._virtual) return;  // skip virtual devices
-    var bldH=d.bldH||15, bldF=d.bldFloors||4;
-    var deviceH=(d.floor-1)*bldH/bldF + bldH/bldF/2;
+    if(!d.lng||!d.lat) return;
     var cls=d.st==='on'?'amap-dev-marker':d.st==='wn'?'amap-dev-marker wn':'amap-dev-marker off';
     var el=document.createElement('div');
     el.className=cls;
-    el.title=d.name+' | '+d.floor+'F | '+deviceH.toFixed(1)+'m | '+d.sig+' dBm';
+    el.title=d.name+' | '+d.floor+'F | '+d.sig+' dBm';
     var tag=document.createElement('span');
     tag.className='floor-tag';
     tag.textContent=d.floor+'F';
@@ -1174,32 +1351,22 @@ function renderAmapDeviceMarkers(){
     var marker=new AMap.Marker({
       content:el,
       position:[d.lng,d.lat],
-      offset:new AMap.Pixel(0,0),
-      zIndex:100+d.floor
+      offset:new AMap.Pixel(-9,-9),
+      zIndex:100
     });
     map3d.add(marker);
-    _amapMarkers.push({marker:marker, el:el, height:deviceH, dev:d});
+    _amapMarkers.push({marker:marker, el:el, dev:d});
   });
-  console.log('[AMap markers] rendered '+_amapMarkers.length+' devices');
-
-  // Apply 3D height via CSS transform on content element (AMap handles ground position)
-  applyAmapMarkerHeights();
-
-  // Keep in sync — use frequent events to avoid lag during drag
-  _amapMarkerHandler=function(){applyAmapMarkerHeights();};
-  map3d.on('moveend',_amapMarkerHandler);
-  map3d.on('zoomchange',_amapMarkerHandler);
-  map3d.on('moving',_amapMarkerHandler);     // update during drag
-  map3d.on('rotatechange',_amapMarkerHandler); // update during rotation
+  console.log('[AMap markers] rendered '+_amapMarkers.length+' 2D ground markers');
 }
 
-// Center marker on ground position (no 3D height offset)
+// Ground-center markers — no 3D height offset needed (all 2D)
 function applyAmapMarkerHeights(){
   if(!map3d||!_amapMarkers.length) return;
   for(var i=0;i<_amapMarkers.length;i++){
     var item=_amapMarkers[i];
     if(!item.el) continue;
-    item.el.style.transform='translate(-50%,-50%) translate(0px,0px)';
+    item.el.style.transform='translate(-50%,-50%)';
   }
 }
 
@@ -1257,7 +1424,7 @@ function showIntrusionInfo(intr){
 // ==================== RSSI FIELD-STRENGTH POSITIONING ENGINE ====================
 var _posTargetMarker=null;
 var _posCircle=null;
-var _posInfoWin=null;  // auto-open InfoWindow above marker
+var _posLabel=null;  // label marker above target
 
 // RSSI path loss model: RSSI = TxPower - 10*n*log10(d) + noise
 // d = 10^((TxPower - RSSI) / (10*n))
@@ -1319,7 +1486,6 @@ var _trackTimer=null;
 var _trackTarget=null;   // true target position
 var _trackRefDev=null;   // reference device (target orbits near this)
 var _trackHeading=Math.random()*Math.PI*2; // current walking direction
-var _trackImsi='';      // simulated IMSI
 var _lastReadings=[];   // latest RSSI readings for signal chart
 var _animFrom=null, _animTo=null, _animStart=0, _animDur=800; // smooth slide
 
@@ -1331,8 +1497,6 @@ function startRssiScan(){
   _trackRefDev=online[Math.floor(Math.random()*online.length)];
   _trackTarget={lng:_trackRefDev.lng, lat:_trackRefDev.lat};
   _trackHeading=Math.random()*Math.PI*2;
-  // Generate random 15-digit IMSI
-  _trackImsi='4600'+Math.floor(Math.random()*100000000000).toString().padStart(11,'0');
 
   showToast('开始实时追踪...','ok');
   document.getElementById('m3dPosResult').innerHTML='<b style="color:#ef4444">🔄 追踪中...</b>';
@@ -1434,22 +1598,26 @@ function updatePositionTarget(result, readings){
   });
   map3d.add(_posCircle);
 
-  // Auto-open InfoWindow above marker (no click needed)
-  var infoHtml=buildTrackInfoHtml(result, readings);
-  if(_posInfoWin){try{_posInfoWin.close()}catch(e){}}
-  _posInfoWin=new AMap.InfoWindow({content:infoHtml,offset:new AMap.Pixel(0,-28),isCustom:false});
-  _posInfoWin.open(map3d, [result.lng, result.lat]);
+  // Label above red marker (DOM Marker, no auto-pan)
+  var labelHtml='<div style="background:rgba(0,0,0,0.8);color:#fff;font-size:10px;padding:3px 7px;border-radius:4px;white-space:nowrap;line-height:1.5;pointer-events:none">🎯 '+result.lng.toFixed(6)+' '+result.lat.toFixed(6)+' ±'+result.err.toFixed(1)+'m</div>';
+  if(_posLabel){
+    _posLabel.setPosition(new AMap.LngLat(result.lng, result.lat));
+    _posLabel.setContent(labelHtml);
+  } else {
+    _posLabel=new AMap.Marker({content:labelHtml,position:[result.lng,result.lat],offset:new AMap.Pixel(-90,-42),zIndex:299});
+    map3d.add(_posLabel);
+  }
 
   // Update info panel
   showTrackResults(result, readings);
 }
 
 function buildTrackInfoHtml(result, readings){
+  var alt=_trackRefDev?(Math.max(1,_trackRefDev.floor||1)-1)*(_trackRefDev.bldH||15)/(_trackRefDev.bldFloors||4):0;
   var h='<div style="font-size:12px;line-height:1.7">'+
     '<b style="color:#ef4444;font-size:14px">🎯 实时追踪</b><br>'+
-    '<b>IMSI:</b> <span style="font-family:monospace">'+_trackImsi+'</span><br>'+
     '<b>坐标:</b><br><span style="font-family:monospace;font-size:11px;background:#fef2f2;padding:2px 4px;border-radius:2px">'+
-    result.lng.toFixed(6)+', '+result.lat.toFixed(6)+'</span><br>'+
+    result.lng.toFixed(6)+', '+result.lat.toFixed(6)+'<br>'+alt.toFixed(1)+'m</span><br>'+
     '<b>误差半径:</b> '+result.err.toFixed(1)+'m<br><br><b>各设备场强:</b><br>';
   readings.forEach(function(r){h+=r.name+': <b>'+r.sig.toFixed(0)+' dBm</b><br>'});
   h+='</div>';
@@ -1458,7 +1626,6 @@ function buildTrackInfoHtml(result, readings){
 
 function showTrackResults(result, readings){
   var h='<b style="color:#ef4444">🔄 实时追踪</b><br>'+
-    'IMSI: <span style="font-family:monospace;font-size:10px">'+_trackImsi+'</span><br>'+
     '坐标: <span style="font-family:monospace;font-size:11px">'+result.lng.toFixed(6)+', '+result.lat.toFixed(6)+'</span><br>'+
     '误差: '+result.err.toFixed(1)+'m<br>';
   document.getElementById('m3dPosResult').innerHTML=h;
@@ -1467,7 +1634,6 @@ function showTrackResults(result, readings){
 function updateSignalChart(){
   var sigHtml='';
   if(_trackTimer && _posTargetMarker && _lastReadings.length){
-    sigHtml='<div style="font-size:10px;color:#ef4444;font-weight:600;margin-bottom:4px">📱 IMSI: '+_trackImsi+'</div>';
     _lastReadings.forEach(function(r){
       var pct=Math.min(100,Math.max(5,Math.round(Math.abs(r.sig)/80*100)));
       sigHtml+='<div style="display:flex;align-items:center;gap:4px;margin-bottom:2px">'+
@@ -1515,10 +1681,11 @@ function switchPage(page){
   if(panel) panel.classList.add('active');
   var btn=document.querySelector('[data-page="'+page+'"]');
   if(btn) btn.classList.add('active');
-  var titles={dashboard:'系统总览',devstatus:'设备状态',map3d:'三维地图定位',devices:'设备管理',settings:'系统配置'};
+  var titles={dashboard:'系统总览',devstatus:'设备状态',map3d:'三维地图定位',devices:'设备管理',omc:'OMC配置',settings:'系统配置'};
   document.getElementById('pageTitle').textContent=titles[page]||page;
   if(page==='dashboard') setTimeout(function(){if(mapDash)mapDash.resize()},200);
   if(page==='devices') renderDeviceTable();
+  if(page==='omc'){switchOmcTab('area');renderOmcAreas()}
 }
 
 // Special page handlers
@@ -1771,7 +1938,7 @@ function updateM3dCharts(){
   var alertStr=ALERTS.map(function(a){
     return '【'+(a.lv==='c'?'严重':'提示')+'】'+a.msg+' ('+a.time+')';
   }).join('    ║    ');
-  document.getElementById('m3dAlertText').textContent=alertStr+'    ║    '+alertStr;
+  document.getElementById('m3dAlertTop').textContent=alertStr+'    ║    '+alertStr;
 }
 
 function flyToBuilding(id){
@@ -1996,6 +2163,9 @@ function openAddModalWithFloor(preBldIdx, preFloor){
   document.getElementById('addDevName').value='';
   document.getElementById('addDevIp').value='';
   document.getElementById('addDevFloor').value=''+preFloor;
+  document.getElementById('addDevArea').innerHTML='<option value="">— 无 —</option>'+OMC_AREAS.filter(function(a){return a.type==='school'}).map(function(a){return '<option value="'+a.id+'">'+a.name+'</option>'}).join('');
+  document.getElementById('addDevSchedule').innerHTML='<option value="">— 无 —</option>'+OMC_SCHEDULES.map(function(s){return '<option value="'+s.id+'">'+s.name+'</option>'}).join('');
+  document.getElementById('addDevPersonnel').innerHTML='<option value="">— 无 —</option>'+OMC_PERSONNEL.map(function(p){return '<option value="'+p.id+'">'+p.name+'</option>'}).join('');
   document.getElementById('addDeviceModal').classList.add('show');
 }
 function closeAddModal(){
@@ -2017,12 +2187,18 @@ function confirmAddDevice(){
   var type=document.getElementById('addDevType').value;
   var bldH=b?b.height:15,bldF=b?b.floors:4;
   var lng=_clickLng||(b?b.lng:102.71225),lat=_clickLat||(b?b.lat:25.04061);
+  var areaId=document.getElementById('addDevArea').value;
+  var scheduleId=document.getElementById('addDevSchedule').value;
+  var personnelId=document.getElementById('addDevPersonnel').value;
+  var slaves=parseInt(document.getElementById('addDevSlaves').value)||0;
   DEVICES.push({
     id:'dev'+_devIdCounter,name:name+' ('+ip+')',type:type,
     bldId:idx>=0?idx:-1,bldH:bldH,bldFloors:bldF,floor:floor,
     sig:-(45+Math.floor(Math.random()*30)),st:'on',
-    lng:lng,lat:lat,kp:'张工'
+    lng:lng,lat:lat,kp:personnelId||'未指定',
+    areaId:areaId,scheduleId:scheduleId,personnelId:personnelId
   });
+  for(var s=0;s<slaves;s++){_devIdCounter++;DEVICES.push({id:'dev'+_devIdCounter,name:name+'-从'+(s+1)+' ('+ip+')',type:type+'从',bldId:idx>=0?idx:-1,bldH:bldH,bldFloors:bldF,floor:floor,sig:-(45+Math.floor(Math.random()*30)),st:'on',lng:lng+(Math.random()-0.5)*0.0002,lat:lat+(Math.random()-0.5)*0.0002,kp:personnelId||'未指定',areaId:areaId,scheduleId:scheduleId,personnelId:personnelId});}
   console.log('[confirm] device pushed, total:',DEVICES.length);
   closeAddModal();
   renderDeviceTable();
@@ -2141,6 +2317,137 @@ function showToast(msg,type){
 }
 
 document.getElementById('loginUser').focus();
+
+// Overlay click-outside-to-close
+document.getElementById('layoutOverlay').addEventListener('click',function(e){
+  if(e.target===this) closeLayoutTree();
+});
+document.getElementById('imsiOverlay').addEventListener('click',function(e){
+  if(e.target===this) closeImsiPanel();
+});
+
+// ============ 全局布局 (可编辑) ============
+var _layoutDistricts = [
+  {name:'五华区',lat:25.048,lng:102.707,buildings:['翠湖周边','云南大学','昆明市文化馆','南屏街工坊','正义坊','金鹰购物中心']},
+  {name:'盘龙区',lat:25.055,lng:102.72,buildings:['昆明广场','同德广场','北部客运站','世博园']},
+  {name:'官渡区',lat:25.015,lng:102.75,buildings:['昆明国际会展中心','官渡古镇','世纪城','新螺蛳湾']},
+  {name:'西山区',lat:25.038,lng:102.67,buildings:['万达广场','大观楼','滇池路沿线','南亚风情园']},
+  {name:'呈贡区',lat:24.885,lng:102.82,buildings:['昆明南站','大学城','市政府','呈贡万达']}
+];
+var _layoutEditMode = false;
+
+function openLayoutTree(){renderLayoutTree();document.getElementById('layoutOverlay').classList.add('show');}
+function closeLayoutTree(){document.getElementById('layoutOverlay').classList.remove('show');}
+
+function renderLayoutTree(){
+  var d=DEVICES, dists=_layoutDistricts;
+  var online=d.filter(function(x){return x.st==='on'}).length;
+  var offline=d.filter(function(x){return x.st==='off'}).length;
+  var fault=d.filter(function(x){return x.st==='fault'}).length;
+  var standby=d.filter(function(x){return x.st==='standby'}).length;
+  var html='<div class="tree-stats">'+
+    '<div class="tree-stat-item"><div class="tsi-val" style="color:#10b981">'+online+'</div><div class="tsi-lbl">在线设备</div></div>'+
+    '<div class="tree-stat-item"><div class="tsi-val" style="color:#3c8dbc">'+standby+'</div><div class="tsi-lbl">待命设备</div></div>'+
+    '<div class="tree-stat-item"><div class="tsi-val" style="color:#f59e0b">'+fault+'</div><div class="tsi-lbl">故障设备</div></div>'+
+    '<div class="tree-stat-item"><div class="tsi-val" style="color:#ef4444">'+offline+'</div><div class="tsi-lbl">离线设备</div></div>'+
+    '</div>';
+  html+='<div style="margin-bottom:10px;display:flex;gap:8px">'+
+    '<button class="dash-btn start" onclick="addLayoutDistrict()" style="font-size:11px;padding:4px 14px">+ 添加地区</button>'+
+    '<button class="dash-btn restart" onclick="toggleLayoutEdit()" style="font-size:11px;padding:4px 14px">'+(_layoutEditMode?'🔒 锁定编辑':'🔓 开启编辑')+'</button>'+
+    '</div>';
+  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">';
+  dists.forEach(function(dist,di){
+    var areaDevs=d.filter(function(x){if(!x.bld)return false;return dist.buildings.some(function(b){return x.bld.indexOf(b)>=0||b.indexOf(x.bld)>=0})});
+    if(areaDevs.length===0)areaDevs=d.filter(function(_,i){return i<dist.buildings.length});
+    var areaOnline=areaDevs.filter(function(x){return x.st==='on'}).length;
+    html+='<div style="border:1px solid var(--border);border-radius:6px;padding:14px;position:relative">'+
+      '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">'+
+      '<div style="font-size:15px;font-weight:700;color:var(--accent)">📍 '+dist.name+' <span style="font-size:12px;font-weight:400;color:var(--text-muted)">设备 '+areaOnline+'/'+areaDevs.length+'</span></div>';
+    if(_layoutEditMode){html+='<div style="display:flex;gap:3px">'+
+      '<button class="dash-btn stop" style="padding:1px 6px;font-size:9px" onclick="renameDistrict('+di+')">✏️</button>'+
+      '<button class="dash-btn stop" style="padding:1px 6px;font-size:9px" onclick="deleteDistrict('+di+')">🗑</button>'+
+      '<button class="dash-btn start" style="padding:1px 6px;font-size:9px" onclick="addLayoutBuilding('+di+')">+楼栋</button></div>';}
+    html+='</div><ul class="tree-node">';
+    dist.buildings.forEach(function(bld,bi){
+      var bldDevs=areaDevs.filter(function(x,i){return i===dist.buildings.indexOf(bld)||(x.bld&&x.bld.indexOf(bld)>=0)});
+      if(bldDevs.length===0&&dist.buildings.indexOf(bld)<areaDevs.length)bldDevs=[areaDevs[dist.buildings.indexOf(bld)]];
+      html+='<li><div style="display:flex;align-items:center;gap:6px;line-height:1.8"><strong>🏢 '+bld+'</strong>';
+      if(_layoutEditMode){html+='<button class="dash-btn stop" style="padding:0 4px;font-size:8px;line-height:1.2" onclick="renameBuilding('+di+','+bi+')">✏️</button>'+
+        '<button class="dash-btn stop" style="padding:0 4px;font-size:8px;line-height:1.2" onclick="deleteBuilding('+di+','+bi+')">🗑</button>'+
+        '<button class="dash-btn start" style="padding:0 4px;font-size:8px;line-height:1.2" onclick="addDeviceToBuilding('+di+','+bi+')">+设备</button>';}
+      html+='</div>';
+      if(bldDevs.length>0){bldDevs.forEach(function(dd){
+        var tag='',tagCls='';
+        if(dd.st==='on'){tag='在线';tagCls='green'}else if(dd.st==='off'){tag='离线';tagCls='red'}else if(dd.st==='fault'){tag='故障';tagCls='yellow'}else{tag='待命';tagCls='blue'}
+        html+='<div style="padding-left:20px;display:flex;align-items:center;gap:6px;line-height:1.8">📡 '+dd.name+' ('+dd.sig+' dBm)<span class="tree-tag '+tagCls+'">'+tag+'</span>';
+        if(_layoutEditMode){html+='<button class="dash-btn stop" style="padding:0 4px;font-size:8px;line-height:1.2" onclick="removeDeviceFromLayout(\''+dd.id+'\')">✕</button>';}
+        html+='</div>';
+      })}else{html+='<span class="tree-tag blue" style="margin-left:8px">未部署</span>';}
+      html+='</li>';
+    });
+    html+='</ul></div>';
+  });
+  html+='</div>';
+  document.getElementById('layoutTreeContent').innerHTML=html;
+}
+
+function toggleLayoutEdit(){_layoutEditMode=!_layoutEditMode;renderLayoutTree();showToast(_layoutEditMode?'编辑模式已开启':'编辑模式已锁定','ok');}
+function addLayoutDistrict(){var name=prompt('请输入新地区名称：');if(!name||!name.trim())return;_layoutDistricts.push({name:name.trim(),lat:25.049,lng:102.707,buildings:[]});renderLayoutTree();showToast('已添加地区：'+name.trim(),'ok');}
+function renameDistrict(di){var dist=_layoutDistricts[di];var name=prompt('修改地区名称：',dist.name);if(!name||!name.trim())return;dist.name=name.trim();renderLayoutTree();showToast('已重命名','ok');}
+function deleteDistrict(di){var dist=_layoutDistricts[di];if(!confirm('确认删除地区「'+dist.name+'」及其所有建筑？'))return;_layoutDistricts.splice(di,1);renderLayoutTree();showToast('已删除','ok');}
+function addLayoutBuilding(di){var name=prompt('请输入建筑名称：');if(!name||!name.trim())return;_layoutDistricts[di].buildings.push(name.trim());renderLayoutTree();showToast('已添加建筑：'+name.trim(),'ok');}
+function renameBuilding(di,bi){var bld=_layoutDistricts[di].buildings[bi];var name=prompt('修改建筑名称：',bld);if(!name||!name.trim())return;_layoutDistricts[di].buildings[bi]=name.trim();renderLayoutTree();showToast('已重命名','ok');}
+function deleteBuilding(di,bi){var bld=_layoutDistricts[di].buildings[bi];if(!confirm('确认删除建筑「'+bld+'」？'))return;_layoutDistricts[di].buildings.splice(bi,1);renderLayoutTree();showToast('已删除','ok');}
+function addDeviceToBuilding(di,bi){var dist=_layoutDistricts[di],bld=dist.buildings[bi];var name=prompt('设备名称：','侦测单元-'+(_devIdCounter+1));if(!name||!name.trim())return;_devIdCounter++;DEVICES.push({id:'dev'+_devIdCounter,name:name.trim(),type:'4G侦测仪',bldId:0,bld:bld,bldH:30,bldFloors:8,floor:1,height:0,sig:-(40+Math.floor(Math.random()*25)),st:'on',lng:dist.lng+(Math.random()-0.5)*0.001,lat:dist.lat+(Math.random()-0.5)*0.001,kp:'手动添加'});updateAllViews();renderLayoutTree();showToast('已添加设备：'+name.trim(),'ok');}
+function removeDeviceFromLayout(devId){if(!confirm('确认删除此设备？'))return;DEVICES=DEVICES.filter(function(d){return d.id!==devId});updateAllViews();renderLayoutTree();showToast('已删除设备','ok');}
+
+// ============ IMSI 采集 ============
+var _imsiData=[];
+function initImsiDemo(){
+  _imsiData=[
+    {imsi:'460010123456789',msisdn:'13888123456',type:'移动',signal:-48,bld:'云南大学',floor:3,time:new Date(Date.now()-120000).toLocaleTimeString('zh-CN')},
+    {imsi:'460020123456780',msisdn:'18687001234',type:'联通',signal:-55,bld:'南屏街工坊',floor:1,time:new Date(Date.now()-240000).toLocaleTimeString('zh-CN')},
+    {imsi:'460030123456781',msisdn:'18988001234',type:'电信',signal:-42,bld:'翠湖周边',floor:5,time:new Date(Date.now()-80000).toLocaleTimeString('zh-CN')},
+    {imsi:'460010987654321',msisdn:'13888987654',type:'移动',signal:-62,bld:'昆明市文化馆',floor:2,time:new Date(Date.now()-360000).toLocaleTimeString('zh-CN')},
+    {imsi:'460020987654320',msisdn:'18687987654',type:'联通',signal:-51,bld:'云南大学',floor:4,time:new Date(Date.now()-180000).toLocaleTimeString('zh-CN')},
+    {imsi:'460030987654322',msisdn:'18987987654',type:'电信',signal:-39,bld:'正义坊',floor:1,time:new Date(Date.now()-60000).toLocaleTimeString('zh-CN')},
+    {imsi:'460010555666777',msisdn:'13888555666',type:'移动',signal:-58,bld:'金鹰购物中心',floor:6,time:new Date(Date.now()-420000).toLocaleTimeString('zh-CN')},
+    {imsi:'460020555666770',msisdn:'18687555666',type:'联通',signal:-45,bld:'南屏街工坊',floor:2,time:new Date(Date.now()-150000).toLocaleTimeString('zh-CN')},
+  ];
+}
+function openImsiPanel(){
+  if(_imsiData.length===0) initImsiDemo();
+  renderImsiTable();
+  document.getElementById('imsiOverlay').classList.add('show');
+}
+function closeImsiPanel(){
+  document.getElementById('imsiOverlay').classList.remove('show');
+}
+function refreshImsi(){
+  initImsiDemo();
+  renderImsiTable();
+  showToast('IMSI数据已刷新','ok');
+}
+function renderImsiTable(){
+  var html='<table class="imsi-table"><thead><tr>'+
+    '<th>#</th><th>IMSI</th><th>MSISDN</th><th>运营商</th><th>场强</th><th>建筑</th><th>楼层</th><th>采集时间</th>'+
+    '</tr></thead><tbody>';
+  _imsiData.forEach(function(r,i){
+    html+='<tr>'+
+      '<td>'+(i+1)+'</td>'+
+      '<td style="font-family:monospace">'+r.imsi+'</td>'+
+      '<td>'+r.msisdn+'</td>'+
+      '<td><span class="type-badge '+r.type+'">'+r.type+'</span></td>'+
+      '<td style="color:'+(r.signal>-50?'#10b981':r.signal>-60?'#f59e0b':'#ef4444')+';font-weight:600">'+r.signal+' dBm</td>'+
+      '<td>'+r.bld+'</td>'+
+      '<td>'+r.floor+'F</td>'+
+      '<td>'+r.time+'</td>'+
+      '</tr>';
+  });
+  html+='</tbody></table>';
+  html+='<div style="margin-top:10px;font-size:11px;color:var(--text-muted)">共采集 <strong>'+_imsiData.length+'</strong> 条IMSI记录</div>';
+  document.getElementById('imsiContent').innerHTML=html;
+}
 </script>
 </body>
 </html>
