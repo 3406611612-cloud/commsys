@@ -820,6 +820,7 @@ var _amapBldIdx = [];  // AMap building index (top 100 from kmBuildingsAmap)
 var _amapBldByIdx = {}; // AMap full building lookup
 var _placeMode = false;
 var _amapMarkers = [];  // stores {marker, el, dev} — AMap.Marker at ground level
+var _dashMarkers = [];  // AMap.Marker on dash preview map
 var _clickLng=0, _clickLat=0;  // AMap click position for device placement
 
 // ==================== VIRTUAL DEVICE DATA ====================
@@ -1245,6 +1246,8 @@ function initMaps(){
         _lastClick=now; _lastLng=e.lnglat.lng; _lastLat=e.lnglat.lat;
       }
       map3d.on('click', _handleClick);
+      // Close info window on map click
+      map3d.on('click',function(){if(_m3dInfoWindow){_m3dInfoWindow.close();_m3dInfoWindow=null;}});
       _amapBuildings.on('click', _handleClick);
       // Fallback: native DOM dblclick on the map container
       var _container=document.getElementById('map3dFull');
@@ -1345,9 +1348,9 @@ function renderAmapDeviceMarkers(){
     tag.className='floor-tag';
     tag.textContent=d.floor+'F';
     el.appendChild(tag);
-    (function(devId){
-      el.addEventListener('click',function(e){e.stopPropagation();focusDeviceOnMap(devId);});
-    })(d.id);
+    (function(dd){
+      el.addEventListener('click',function(e){e.stopPropagation();showDeviceInfoWindow(dd);});
+    })(d);
     var marker=new AMap.Marker({
       content:el,
       position:[d.lng,d.lat],
@@ -1368,6 +1371,30 @@ function applyAmapMarkerHeights(){
     if(!item.el) continue;
     item.el.style.transform='translate(-50%,-50%)';
   }
+}
+
+var _m3dInfoWindow = null;
+function showDeviceInfoWindow(d){
+  if(!map3d) return;
+  if(_m3dInfoWindow){_m3dInfoWindow.close();_m3dInfoWindow=null;}
+  var stLabel=d.st==='on'?'在线':d.st==='off'?'离线':d.st==='fault'?'故障':'待命';
+  var stColor=d.st==='on'?'#10b981':d.st==='off'?'#ef4444':d.st==='fault'?'#f59e0b':'#3c8dbc';
+  var bldName=d.bld||'未知建筑';
+  var content='<div style="padding:8px 12px;font-size:12px;line-height:1.8;min-width:160px">'+
+    '<div style="font-weight:700;font-size:13px;color:#333;margin-bottom:4px">📡 '+d.name+'</div>'+
+    '<div>📍 区域：<b>昆明市</b></div>'+
+    '<div>🏢 建筑：<b>'+bldName+'</b></div>'+
+    '<div>📶 信号：<b style="color:#e67e22">'+d.sig+' dBm</b></div>'+
+    '<div>🔢 楼层：<b>'+d.floor+'F</b></div>'+
+    '<div>状态：<b style="color:'+stColor+'">● '+stLabel+'</b></div>'+
+    '<div>🔧 维护：<b>'+d.kp+'</b></div>'+
+    '</div>';
+  _m3dInfoWindow = new AMap.InfoWindow({
+    content:content,
+    offset:new AMap.Pixel(0,-30),
+    autoMove:false
+  });
+  _m3dInfoWindow.open(map3d,[d.lng,d.lat]);
 }
 
 // ==================== INTRUSION RED DOT RENDERING ====================
